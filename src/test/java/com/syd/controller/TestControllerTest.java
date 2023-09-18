@@ -1,6 +1,8 @@
 package com.syd.controller;
 
 import com.syd.TestApplication;
+import com.syd.service.TestService;
+import com.syd.service.impl.TestServiceImpl;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -21,10 +23,14 @@ import java.util.Properties;
 public class TestControllerTest {
     @Resource
     private TestController testController;
+    @Resource
+    private TestServiceImpl testService;
 
     @Test
     public void test() {
         System.out.println("TEST METHOD");
+        String accessToken = testService.getAccessToken();
+
         /*Map<String, String> getenv = System.getenv();
         System.out.println(getenv);
         Properties properties = System.getProperties();
