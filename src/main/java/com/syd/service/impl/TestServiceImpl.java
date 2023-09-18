@@ -3,6 +3,10 @@ package com.syd.service.impl;
 import com.syd.service.TestService;
 import org.springframework.stereotype.Service;
 
+import java.util.Enumeration;
+import java.util.Map;
+import java.util.Properties;
+
 /**
  * @author syd
  * @Description：
@@ -29,5 +33,11 @@ public class TestServiceImpl implements TestService {
         String env = System.getenv("secrets.APP_ID");
         System.out.println("env: " + env);
         System.out.println("Hello World!");
+        System.out.println("==========================");
+        Map<String, String> getenv = System.getenv();
+        System.out.println(getenv);
+        Properties properties = System.getProperties();
+        System.out.println("=====================================");
+        System.out.println(properties);
     }
 }
