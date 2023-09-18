@@ -1,5 +1,6 @@
 package com.syd.service.impl;
 
+import com.alibaba.fastjson.JSON;
 import com.syd.service.TestService;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -35,16 +36,17 @@ public class TestServiceImpl implements TestService {
         System.out.println(getenv);
         String accessToken = getAccessToken();
         System.out.println(accessToken);
+        System.out.println(JSON.parseObject(getAccessToken()).getString("access_token"));
     }
 
     public String getAccessToken() {
         String APP_ID = System.getenv("APP_ID");
         String APP_SECRET = System.getenv("APP_SECRET");
+//        String APP_ID = "wx72e3b32d6ed5ee77";
+//        String APP_SECRET = "1ad43532df49989264e3f722c59fd847";
         Map<String, String> param = new HashMap<>();
         param.put("appid", APP_ID);
         param.put("secret", APP_SECRET);
-        String result = restTemplate.getForObject("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential", String.class, param);
-        System.out.println(result);
-        return result;
+        return restTemplate.getForObject("https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={appid}&secret={secret}", String.class, param);
     }
 }
