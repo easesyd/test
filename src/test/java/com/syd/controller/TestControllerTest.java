@@ -22,15 +22,16 @@ public class TestControllerTest {
     @Resource
     private TestController testController;
 
-    /*@Test
+    @Test
     public void test() {
-        Map<String, String> getenv = System.getenv();
+        System.out.println("TEST METHOD");
+        /*Map<String, String> getenv = System.getenv();
         System.out.println(getenv);
         Properties properties = System.getProperties();
         System.out.println("=====================================");
         System.out.println(properties);
         Enumeration<?> enumeration = properties.propertyNames();
-        testController.test();
-    }*/
+        testController.test();*/
+    }
 
 }
