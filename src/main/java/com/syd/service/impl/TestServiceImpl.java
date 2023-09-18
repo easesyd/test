@@ -14,9 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.Resource;
-import java.time.Duration;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
@@ -73,7 +71,7 @@ public class TestServiceImpl implements TestService {
         data.put("weather", weather);
 
         JSONObject wind = new JSONObject();
-        wind.put("value", todayWhether.getWd_day() + "  "+ todayWhether.getWc_day());
+        wind.put("value", todayWhether.getWd_day() + "  " + todayWhether.getWc_day());
         wind.put("color", "#51c332");
         data.put("wind", wind);
 
@@ -93,10 +91,9 @@ public class TestServiceImpl implements TestService {
         high.put("color", "#51c332");
         data.put("highest", high);
 
-        LocalDateTime birthday = LocalDateTime.parse(BIRTHDAY + " 00:00:00", DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
-        LocalDateTime nowTime = LocalDateTime.now();
-        Duration duration = Duration.between(nowTime, birthday);
-        long toDays = duration.toDays();
+        LocalDate nowTime = LocalDate.now();
+        LocalDate birthday = LocalDate.parse(BIRTHDAY, DateTimeFormatter.ofPattern("yyyy-MM-dd")).withYear(nowTime.getYear());
+        long toDays = birthday.toEpochDay() - nowTime.toEpochDay();
         JSONObject birthday_left = new JSONObject();
         birthday_left.put("value", toDays);
         birthday_left.put("color", "#51c332");
