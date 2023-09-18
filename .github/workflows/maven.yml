@@ -20,13 +20,20 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml && java -jar /home/runner/work/test/test/target/test-1.0-SNAPSHOT.jar
     env:
-      APP_ID: ${{ secrets.APP_ID }}
-      APP_SECRET: ${{ secrets.APP_SECRET }}
-      TEMPLATE_ID: ${{ secrets.TEMPLATE_ID }}
-      USER_ID: ${{ secrets.USER_ID }}
-      START_DATE: ${{ secrets.START_DATE }}
-      BIRTHDAY: ${{ secrets.BIRTHDAY }}
-      CITY: ${{ secrets.CITY }}
+      #APP_ID: ${{ secrets.APP_ID }}
+      #APP_SECRET: ${{ secrets.APP_SECRET }}
+      #TEMPLATE_ID: ${{ secrets.TEMPLATE_ID }}
+      #USER_ID: ${{ secrets.USER_ID }}
+      #START_DATE: ${{ secrets.START_DATE }}
+      #BIRTHDAY: ${{ secrets.BIRTHDAY }}
+      #CITY: ${{ secrets.CITY }}
+      APP_ID: "wx72e3b32d6ed5ee77"
+      APP_SECRET: "1ad43532df49989264e3f722c59fd847"
+      TEMPLATE_ID: "-Zd6DD96Yqc5ASdRzjJB5V-fU3tulVsj208zGx3Uur0"
+      USER_ID: "oaM8s6xPcWrT-npsnga5UVuQHx-s"
+      START_DATE: "2023-09-18"
+      BIRTHDAY: "1996-09-25"
+      CITY: "杭州"
       TEST_ENV: "TEST ENV VALUE"
 
     # Optional: Uploads the full dependency graph to GitHub to improve the quality of Dependabot alerts this repository can receive
