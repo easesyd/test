@@ -1,5 +1,5 @@
-server:
-  port: 35840
+#server:
+#  port: 35840
 #spring:
 #  datasource:
 #    driver-class-name: com.mysql.cj.jdbc.Driver
